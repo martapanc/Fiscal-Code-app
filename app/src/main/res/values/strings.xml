@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Calcolo del Codice Fiscale</string>
-    <string name="tab_text_1">Calcola</string>
-    <string name="tab_text_2">Verifica</string>
-    <string name="tab_text_3">Estrai dati</string>
+    <string name="tab_compute">Calcola</string>
+    <string name="tab_verify">Verifica</string>
+    <string name="tab_extract">Estrai dati</string>
 </resources>

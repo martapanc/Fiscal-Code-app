@@ -1,4 +1,4 @@
-package com.example.fiscalcode.ui.main.extraction
+package com.example.fiscalcode.ui.main.extract
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -13,13 +13,13 @@ import com.example.fiscalcode.R
 /**
  * A placeholder fragment containing a simple view.
  */
-class ExtractionFragment : Fragment() {
+class ExtractFragment : Fragment() {
 
-    private lateinit var extractionViewModel: ExtractionViewModel
+    private lateinit var extractViewModel: ExtractViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        extractionViewModel = ViewModelProviders.of(this).get(ExtractionViewModel::class.java).apply {
+        extractViewModel = ViewModelProviders.of(this).get(ExtractViewModel::class.java).apply {
             setIndex(arguments?.getInt(ARG_SECTION_NUMBER) ?: 1)
         }
     }
@@ -28,9 +28,9 @@ class ExtractionFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val root = inflater.inflate(R.layout.tab_fragment_3, container, false)
+        val root = inflater.inflate(R.layout.fragment_extract, container, false)
         val textView: TextView = root.findViewById(R.id.section_label)
-        extractionViewModel.text.observe(this, Observer<String> {
+        extractViewModel.text.observe(this, Observer<String> {
             textView.text = it
         })
         return root
@@ -48,8 +48,8 @@ class ExtractionFragment : Fragment() {
          * number.
          */
         @JvmStatic
-        fun newInstance(sectionNumber: Int): ExtractionFragment {
-            return ExtractionFragment().apply {
+        fun newInstance(sectionNumber: Int): ExtractFragment {
+            return ExtractFragment().apply {
                 arguments = Bundle().apply {
                     putInt(ARG_SECTION_NUMBER, sectionNumber)
                 }

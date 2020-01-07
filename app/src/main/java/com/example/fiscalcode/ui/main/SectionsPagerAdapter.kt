@@ -6,13 +6,13 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import com.example.fiscalcode.R
 import com.example.fiscalcode.ui.main.compute.ComputeFragment
-import com.example.fiscalcode.ui.main.extraction.ExtractionFragment
+import com.example.fiscalcode.ui.main.extract.ExtractFragment
 import com.example.fiscalcode.ui.main.verify.VerifyFragment
 
 private val TAB_TITLES = arrayOf(
-    R.string.tab_text_1,
-    R.string.tab_text_2,
-    R.string.tab_text_3
+    R.string.tab_compute,
+    R.string.tab_verify,
+    R.string.tab_extract
 )
 
 /**
@@ -29,7 +29,7 @@ class SectionsPagerAdapter(private val context: Context, fm: FragmentManager) :
         return when (position) {
             0 -> ComputeFragment.newInstance(1)
             1 -> VerifyFragment.newInstance(2)
-            2 -> ExtractionFragment.newInstance(3)
+            2 -> ExtractFragment.newInstance(3)
             else -> ComputeFragment.newInstance(1)
         }
     }

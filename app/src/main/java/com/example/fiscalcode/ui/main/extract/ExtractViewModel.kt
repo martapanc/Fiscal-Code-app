@@ -1,16 +1,15 @@
-package com.example.fiscalcode.ui.main
+package com.example.fiscalcode.ui.main.extract
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 
-class PageViewModel : ViewModel() {
+class ExtractViewModel : ViewModel() {
 
     private val _index = MutableLiveData<Int>()
     val text: LiveData<String> = Transformations.map(_index) {
-        "Hello world from section: $it"
+        "Estrazione dei dati da un CF"
     }
 
     fun setIndex(index: Int) {

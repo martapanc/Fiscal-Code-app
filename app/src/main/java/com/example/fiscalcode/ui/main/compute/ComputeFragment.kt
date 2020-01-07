@@ -28,7 +28,7 @@ class ComputeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val root = inflater.inflate(R.layout.tab_fragment_3, container, false)
+        val root = inflater.inflate(R.layout.fragment_compute, container, false)
         val textView: TextView = root.findViewById(R.id.section_label)
         computeViewModel.text.observe(this, Observer<String> {
             textView.text = it
