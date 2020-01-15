@@ -3,4 +3,12 @@
     <string name="tab_compute">Calcola</string>
     <string name="tab_verify">Verifica</string>
     <string name="tab_extract">Estrai dati</string>
+    <string name="name_it">Nome</string>
+    <string name="surname_it">Cognome</string>
+    <string name="female_id">Femmina</string>
+    <string name="male_it">Maschio</string>
+    <string name="gender_it">Genere</string>
+    <string name="dob_it">Data di nascita</string>
+    <string name="placeOfBirth_it">Luogo di nascita</string>
+    <string name="computeBtn_it">Calcola</string>
 </resources>
