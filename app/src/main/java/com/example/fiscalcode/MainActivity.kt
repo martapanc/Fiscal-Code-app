@@ -27,5 +27,23 @@ class MainActivity : AppCompatActivity() {
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
         }
+//
+//        val dateOfBirth_editText: EditText = findViewById(R.id.dateOfBirth_editText)
+//        dateOfBirth_editText.setRawInputType(InputType.TYPE_NULL)
+//        dateOfBirth_editText.setOnClickListener {
+//            val calendar = Calendar.getInstance()
+//            val day = calendar.get(Calendar.DAY_OF_MONTH)
+//            val month = calendar.get(Calendar.MONTH)
+//            val year = calendar.get(Calendar.YEAR)
+//
+//            val picker = DatePickerDialog(this@MainActivity,
+//                DatePickerDialog.OnDateSetListener { view, yearCal, monthOfYear, dayOfMonth ->
+//                    println(dayOfMonth)
+//                    println(monthOfYear)
+//                    println(yearCal)
+//                }, year, month, day)
+//            picker.show()
+//        }
+
     }
 }
