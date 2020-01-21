@@ -1,6 +1,7 @@
 package com.example.fiscalcode.ui.main.compute
 
 import android.app.DatePickerDialog
+import android.icu.text.SimpleDateFormat
 import android.os.Bundle
 import android.text.InputType
 import android.view.LayoutInflater
@@ -13,6 +14,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.fiscalcode.R
 import java.util.*
+
 
 /**
  * A placeholder fragment containing a simple view.
@@ -38,6 +40,8 @@ class ComputeFragment : Fragment() {
             textView.text = it
         })
 
+        Locale.setDefault(Locale.ITALY)
+
         val dateOfBirthEditText: EditText = root.findViewById(R.id.dateOfBirth_editText)
         dateOfBirthEditText.setRawInputType(InputType.TYPE_NULL)
         dateOfBirthEditText.setOnClickListener {
@@ -46,19 +50,21 @@ class ComputeFragment : Fragment() {
             val month = c.get(Calendar.MONTH)
             val day = c.get(Calendar.DAY_OF_MONTH)
 
-            activity?.let {
-                val datePickerDialog =
-                    DatePickerDialog(it, DatePickerDialog.OnDateSetListener { view, yy, mm, dd ->
+            c.add(Calendar.YEAR, -120)
 
-                        dateOfBirthEditText.setText("$yy/$mm/$dd")
-                        //            lblDate.setText("" + dayOfMonth + " " + MONTHS[monthOfYear] + ", " + year)
-                        println(yy)
-                        println(mm)
-                        println(dd)
+            val datePickerDialog = activity?.let { it ->
+                DatePickerDialog(it,
+                    DatePickerDialog.OnDateSetListener { _, yy, mm, dd ->
+                        val sdf = SimpleDateFormat("dd/MM/yyyy", Locale.ITALY)
+                        val calendar = Calendar.getInstance()
+                        calendar.set(yy, mm, dd)
+                        dateOfBirthEditText.setText(sdf.format(calendar.time))
                     }, year, month, day)
-                datePickerDialog
-
-            }?.show()
+            }
+            datePickerDialog?.datePicker?.maxDate = System.currentTimeMillis()
+            datePickerDialog?.setTitle(getString(R.string.dateOfBirth_title))
+            datePickerDialog?.datePicker?.minDate = c.timeInMillis
+            datePickerDialog?.show()
         }
 
         return root
