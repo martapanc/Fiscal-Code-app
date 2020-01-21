@@ -29,7 +29,7 @@ class ComputeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val root = inflater.inflate(R.layout.fragment_compute, container, false)
-        val textView: TextView = root.findViewById(R.id.section_label)
+        val textView: TextView = root.findViewById(R.id.compute_section_label)
         computeViewModel.text.observe(this, Observer<String> {
             textView.text = it
         })

@@ -11,4 +11,5 @@
     <string name="dob_it">Data di nascita</string>
     <string name="placeOfBirth_it">Luogo di nascita</string>
     <string name="computeBtn_it">Calcola</string>
+    <string name="autocomplete_it">Arezzo</string>
 </resources>
