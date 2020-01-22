@@ -7,13 +7,18 @@ import android.text.InputType
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
+import android.widget.AutoCompleteTextView
 import android.widget.EditText
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.fiscalcode.R
+import org.json.JSONObject
+import java.io.InputStream
 import java.util.*
+import kotlin.collections.ArrayList
 
 
 /**
@@ -67,7 +72,45 @@ class ComputeFragment : Fragment() {
             datePickerDialog?.show()
         }
 
+        val obj = JSONObject(readJSONFromAsset())
+//        val list = obj.getJSONArray("comuni")
+//
+////        val townList = ArrayList<String>()
+//        for (i in 0 until list.length()) {
+//            val town : JSONObject = list.getJSONObject(i)
+//            println(town.getString("name"))
+////            townList.add(town.getString("name"))
+//        }
+
+        println(obj.getJSONArray("comuni"))
+
+
+        val autotextView = root.findViewById<AutoCompleteTextView>(R.id.placeOfBirth_autocompleteTextView)
+        val adapter = activity?.let { it -> ArrayAdapter(it, android.R.layout.simple_list_item_1, COUNTRIES)}
+        autotextView.setAdapter(adapter)
+
+
         return root
+    }
+
+
+//    private val comuniJson = URL("https://raw.githubusercontent.com/matteocontrini/comuni-json/master/comuni.json").readText()
+
+
+    private val COUNTRIES = arrayOf(
+        "Belgium", "France", "Italy", "Italian", "Ithaca", "Germany", "Spain"
+    )
+
+    private fun readJSONFromAsset(): String? {
+        val json: String?
+        try {
+            val  inputStream: InputStream? = context?.assets?.open("comuni.json")
+            json = inputStream?.bufferedReader().use{it?.readText()}
+        } catch (ex: Exception) {
+            ex.printStackTrace()
+            return null
+        }
+        return json
     }
 
     companion object {

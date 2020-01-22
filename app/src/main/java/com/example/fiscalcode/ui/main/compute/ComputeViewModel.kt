@@ -9,7 +9,7 @@ class ComputeViewModel : ViewModel() {
 
     private val _index = MutableLiveData<Int>()
     val text: LiveData<String> = Transformations.map(_index) {
-        "Calcolo del CF"
+        ""
     }
 
     fun setIndex(index: Int) {

@@ -13,4 +13,8 @@
     <string name="computeBtn_it">Calcola</string>
     <string name="autocomplete_it">Arezzo</string>
     <string name="dateOfBirth_title">Data di nascita</string>
+    <string name="placeOfBirth_hint">Arezzo</string>
+    <string name="dateOfBirth_hint">15/03/1980</string>
+    <string name="surname_hint">Bianchi</string>
+    <string name="name_hint">Alessandro</string>
 </resources>
